@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: RELEASE_VERSION=$(echo $GITHUB_REF | rev | cut -d "/" -f1 | rev)
+      - run: echo $GITHUB_REF | rev | cut -d "/" -f1 | rev >> $RELEASE_VERSION
 
       - run: echo $RELEASE_VERSION
 
