@@ -1,13 +1,13 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Integration and Feature
+name: Main, Integration and Features
 
 on:
   push:
-    branches: [ "integration", "feature-*" ]
+    branches: [ "main", "integration", "feature/**" ]
   pull_request:
-    branches: [ "integration" ]
+    branches: [ "main", "integration" ]
 
 env:
   GO_VERSION: 1.19
