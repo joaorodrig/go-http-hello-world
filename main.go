@@ -1,4 +1,4 @@
-package go_http_hello_world
+package main
 
 import (
 	"fmt"

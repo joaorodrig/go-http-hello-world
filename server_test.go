@@ -1,4 +1,4 @@
-package go_http_hello_world
+package main
 
 import (
 	"io"
@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestGetHelloServer(t *testing.T) {
+func TestHelloServer(t *testing.T) {
 	var path_input = "/test/123"
 	var path_output = "Path: '/test/123'\n"
 

@@ -1,0 +1,14 @@
+name: Test Project
+
+on: push
+  
+jobs:
+
+  test:
+    runs-on: [ self-hosted, ubuntu22.04 ]
+    steps:
+      
+      - name: Checking out repository
+        uses: actions/checkout@v3
+
+        
