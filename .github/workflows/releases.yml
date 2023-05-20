@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set RELEASE_VERSION variable
-        run: echo "RELEASE_VERSION=$(echo $GITHUB_REF | rev | cut -d '/'' -f1)" | rev >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=$(echo $GITHUB_REF | rev | cut -d '/' -f1)" | rev >> $GITHUB_ENV
 
       - run: echo $RELEASE_VERSION
 
