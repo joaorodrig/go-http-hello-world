@@ -4,6 +4,7 @@
 name: Main, Integration and Features
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main", "integration", "feature/**" ]
   pull_request:

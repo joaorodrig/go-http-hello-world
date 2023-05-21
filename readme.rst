@@ -9,3 +9,4 @@ This repository contains a hello-world application written in go. This is part o
     go run .
     go test .
     go build .
+    ./go-http-hello-world
