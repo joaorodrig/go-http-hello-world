@@ -53,4 +53,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: "${{ env.CONTAINER_REGISTRY }}/${{ env.GITHUB_REPOSITORY }}:latest,${{ env.CONTAINER_REGISTRY }}/{{ env.GITHUB_REPOSITORY }}:{{ env.GITHUB_REF }}"
+          tags: "${{ env.CONTAINER_REGISTRY }}/${{ github.ref }}:latest,${{ env.CONTAINER_REGISTRY }}/{{ github.ref }}:{{ env.GITHUB_REF }}"
