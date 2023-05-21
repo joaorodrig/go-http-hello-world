@@ -10,6 +10,7 @@ on:
   
 env:
   GO_VERSION: 1.19
+  CONTAINER_REGISTRY: ghcr.io
 
 jobs:
 
@@ -41,5 +42,15 @@ jobs:
       - name: Set RELEASE_VERSION variable
         run: echo "RELEASE_VERSION=$(echo $GITHUB_REF | rev | cut -d '/' -f1 | rev)" >> $GITHUB_ENV
 
-            
-          
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: "${{ env.CONTAINER_REGISTRY }}/${{ env.GITHUB_REPOSITORY }}:latest,${{ env.CONTAINER_REGISTRY }}/{{ env.GITHUB_REPOSITORY }}:{{ env.GITHUB_REF }}"
