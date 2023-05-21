@@ -33,10 +33,13 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+      
+      - name: Print all variables
+        run: printenv
 
 
   deploy-ghcr-io:
-    if:  startsWith(github.head_ref, 'releases/')
+    if: startsWith(github.head_ref, 'releases/')
     needs:
       - build
     runs-on: ubuntu-latest
