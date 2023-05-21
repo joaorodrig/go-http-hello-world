@@ -9,8 +9,8 @@ on:
     branches: [ "main", "integration", "releases/**", "feature/**" ]
   pull_request:
     branches: [ "main", "integration", "releases/**" ]
-  # release:
-  #   types: [ "created" ]
+  release:
+    types: [ "created" ]
 
 env:
   GO_VERSION: 1.19
