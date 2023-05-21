@@ -33,13 +33,9 @@ jobs:
 
       - name: Test
         run: go test -v ./...
-      
-      - name: Dump GitHub context
-        run: echo '${{ toJSON(github) }}'
-
 
   deploy-ghcr-io:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'release'
     needs:
       - build
     runs-on: ubuntu-latest
