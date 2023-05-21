@@ -9,6 +9,9 @@ on:
     branches: [ "main", "integration", "releases/**", "feature/**" ]
   pull_request:
     branches: [ "main", "integration", "releases/**" ]
+  release:
+    types: [ "created" ]
+
 env:
   GO_VERSION: 1.19
   CONTAINER_REGISTRY: ghcr.io
@@ -42,7 +45,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set RELEASE_VERSION variable
-        run: echo "RELEASE_VERSION=$(echo $GITHUB_REF | rev | cut -d '/' -f1 | rev)" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
