@@ -43,7 +43,7 @@ jobs:
 
 
   deploy-ghcr-io:
-    if: startsWith(github.head_ref, 'releases/')
+    if: startsWith(github.head_ref, 'refs/tags/')
     needs:
       - build
     runs-on: ubuntu-latest
