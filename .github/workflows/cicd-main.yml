@@ -5,10 +5,10 @@ name: Build and Deploy
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ "main", "integration", "releases/**", "feature/**" ]
-  # pull_request:
-  #   branches: [ "main", "integration", "releases/**" ]
+  push:
+    branches: [ "main", "integration", "releases/**", "feature/**" ]
+  pull_request:
+    branches: [ "main", "integration", "releases/**" ]
   release:
     types: [ "created" ]
 
@@ -33,7 +33,7 @@ jobs:
 
       - name: Test
         run: go test -v ./...
-  
+
 
   deploy-ghcr-io:
     if: startsWith(github.ref, 'refs/tags/v') && github.event_name == 'release'
