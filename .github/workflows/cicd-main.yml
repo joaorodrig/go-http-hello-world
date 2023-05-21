@@ -34,16 +34,16 @@ jobs:
       - name: Test
         run: go test -v ./...
       
-      # DEBUG
-      - name: Set GITHUB_REF variable
-        run: echo "GITHUB_REF=${{ github.head_ref }}" >> $GITHUB_ENV
+      # # DEBUG
+      # - name: Set GITHUB_REF variable
+      #   run: echo "GITHUB_REF=${{ github.head_ref }}" >> $GITHUB_ENV
 
       - name: Print all variables
         run: printenv
 
 
   deploy-ghcr-io:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.head_ref, 'refs/tags/v')
     needs:
       - build
     runs-on: ubuntu-latest
