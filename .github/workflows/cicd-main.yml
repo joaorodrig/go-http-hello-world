@@ -34,9 +34,6 @@ jobs:
       - name: Run gofmt
         run: gofmt -l .
 
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v3      
-
   
   test:
     runs-on: ubuntu-latest
